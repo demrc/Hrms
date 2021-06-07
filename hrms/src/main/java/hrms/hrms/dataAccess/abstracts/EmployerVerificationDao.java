@@ -2,6 +2,8 @@ package hrms.hrms.dataAccess.abstracts;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EmployerVerificationDao extends JpaRepository<EmployerVerificationDao, Integer> {
+import hrms.hrms.entities.concretes.EmployerVerification;
 
+public interface EmployerVerificationDao extends JpaRepository<EmployerVerificationDao, Integer> {
+	EmployerVerification getById(int id);
 }
