@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import hrms.hrms.core.utilities.results.Result;
+import hrms.hrms.core.utilities.results.SuccessResult;
+
 
 import hrms.hrms.business.abstacts.UserService;
 import hrms.hrms.core.utilities.results.DataResult;
@@ -22,14 +25,14 @@ public class UserManager implements UserService{
 	}
 	
 	@Override
-	public DataResult<List<User>> getAll() {
+	public DataResult<List<User>> findByEmail(String email) {
 		return new SuccessDataResult<List<User>>(this.userDao.findAll(),"Data Listed.");
 	}
 
 	@Override
-	public DataResult<User> add(User user) {
-		this.userDao.save(user);
-		return new SuccessDataResult<User>("User added.");
+	public Result add(User users) {
+		this.userDao.save(users);
+		return new SuccessResult();
 	}
 
 	

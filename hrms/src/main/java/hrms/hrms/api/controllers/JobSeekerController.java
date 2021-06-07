@@ -15,6 +15,7 @@ import hrms.hrms.core.utilities.results.ErrorResult;
 import hrms.hrms.core.utilities.results.Result;
 import hrms.hrms.core.utilities.results.SuccessResult;
 import hrms.hrms.entities.concretes.JobSeeker;
+import hrms.hrms.entities.concretes.User;
 
 @RestController
 @RequestMapping("/api/JobSeekers")
@@ -33,11 +34,25 @@ public class JobSeekerController {
 		return this.jobSeekerService.getAll();
 	}
 	@PostMapping("/add")
-	public Result add(@RequestBody JobSeeker jobSeeker) {
-		Result result = jobSeekerService.add(jobSeeker);
+	public Result add(@RequestBody JobSeeker jobSeeker,User user) {
+		Result result = jobSeekerService.add(jobSeeker,user);
 		if(!result.isSuccess()) {
 			return new ErrorResult();
 		}
 		return new SuccessResult();
+	}
+	
+	@GetMapping("/getByEmailAndNationalId")
+	public DataResult<List<JobSeeker>> findByEmailAndNatiınaolId(String email, String nationalid){
+		return this.jobSeekerService.findByEmailAndNatiınaolId(email, nationalid);
+	}
+	
+	@GetMapping("/login")
+	public  Result Login(String email,String password) {
+		return this.jobSeekerService.Login(email, password);
+	}
+	@GetMapping("/register")
+	public Result Register(JobSeeker jobSeeker, User user) {
+		return this.jobSeekerService.Register(jobSeeker, user);
 	}
 }

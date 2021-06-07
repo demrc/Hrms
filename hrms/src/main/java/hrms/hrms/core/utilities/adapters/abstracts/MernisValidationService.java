@@ -4,7 +4,7 @@ import hrms.hrms.core.utilities.results.Result;
 import hrms.hrms.entities.concretes.JobSeeker;
 
 public interface MernisValidationService {
-	public void mernisValidation();
+	public Result mernisValidation();
 
-	Result mernisValidation(JobSeeker jobSeeker);
+	public boolean checkIfRealPerson(JobSeeker jobSeeker);
 }

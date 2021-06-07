@@ -3,8 +3,11 @@ package hrms.hrms.core.utilities.adapters.concretes;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.springframework.stereotype.Service;
+
 import hrms.hrms.core.utilities.adapters.abstracts.PersonelValidationService;
 
+@Service
 public class PersonelValidationManager implements PersonelValidationService {
 
 	@Override

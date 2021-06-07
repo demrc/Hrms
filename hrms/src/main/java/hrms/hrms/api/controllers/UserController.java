@@ -30,7 +30,7 @@ public class UserController {
 	
 	@GetMapping("/getall")
 	public  DataResult<List<User>> getAll(){
-		return this.userService.getAll();
+		return this.userService.findByEmail(null);
 	}
 	@PostMapping("/add")
 	public Result add(@RequestBody User user) {

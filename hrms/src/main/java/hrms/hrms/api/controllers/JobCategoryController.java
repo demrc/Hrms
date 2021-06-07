@@ -30,7 +30,7 @@ public class JobCategoryController {
 	
 	@GetMapping("/getall")
 	public DataResult<List<JobCategory>> getAll(){
-		return this.jobService.getAll();
+		return this.jobService.findByName(null);
 	}
 	@PostMapping("/add")
 	public Result add(@RequestBody JobCategory jobCategory) {

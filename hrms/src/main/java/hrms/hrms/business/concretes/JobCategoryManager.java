@@ -27,7 +27,7 @@ public class JobCategoryManager implements JobCategoryService {
 	
 
 	@Override
-	public DataResult<List<JobCategory>> getAll() {
+	public DataResult<List<JobCategory>> findByName(String name) {
 		return new SuccessDataResult<List<JobCategory>>(this.jobDao.findAll(),"Data Listed.");
 	}
 

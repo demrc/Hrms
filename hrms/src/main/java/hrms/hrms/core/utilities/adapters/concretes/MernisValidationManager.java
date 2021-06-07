@@ -1,33 +1,36 @@
 package hrms.hrms.core.utilities.adapters.concretes;
 
-import hrms.hrms.core.utilities.adapters.abstracts.MernisValidationService;
+import org.springframework.stereotype.Service;
 import hrms.hrms.core.utilities.results.Result;
 import hrms.hrms.core.utilities.results.SuccessResult;
+import hrms.hrms.core.utilities.adapters.abstracts.MernisValidationService;
+
 import hrms.hrms.entities.concretes.JobSeeker;
 
+@Service
 public class MernisValidationManager implements MernisValidationService{
 
 	@Override
-	public Result mernisValidation(JobSeeker jobSeeker) {
-		if(!(jobSeeker.getS_nationalid().length()==11)) {
+	public boolean checkIfRealPerson(JobSeeker jobSeeker) {
+		if(!(jobSeeker.getNationalid().length()==11)) {
 			System.out.println("Enter a valid value.");
 		}
-		if(jobSeeker.getS_firstname().length()==0) {
+		if(jobSeeker.getFirstname().length()==0) {
 		System.out.println("Enter a valid name.");
 		}
-		if(jobSeeker.getS_lastname().length()==0) {
+		if(jobSeeker.getLastname().length()==0) {
 			System.out.println("Enter a valid name.");
 		}
-		if(jobSeeker.getS_dateofbirth().before(null)) {
+		if(jobSeeker.getDateofbirth().before(null)) {
 			System.out.println("Enter a valid date.");
 		}
-		return new SuccessResult();
+		return true;
 	}
 
 	@Override
-	public void mernisValidation() {
-		// TODO Auto-generated method stub
-		
+	public Result mernisValidation() {
+
+		return new SuccessResult();
 	}
 
 }

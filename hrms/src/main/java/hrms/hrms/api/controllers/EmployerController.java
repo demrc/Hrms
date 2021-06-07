@@ -15,6 +15,7 @@ import hrms.hrms.core.utilities.results.ErrorResult;
 import hrms.hrms.core.utilities.results.Result;
 import hrms.hrms.core.utilities.results.SuccessResult;
 import hrms.hrms.entities.concretes.Employer;
+import hrms.hrms.entities.concretes.User;
 
 @RestController
 @RequestMapping("/api/employer")
@@ -34,11 +35,20 @@ public class EmployerController {
 	}
 	
 	@PostMapping("/add")
-	public Result result(@RequestBody Employer employer) {
-		Result result = employerService.add(employer);
+	public Result result(@RequestBody Employer employer,User user) {
+		Result result = employerService.add(employer,user);
 		if(!result.isSuccess()) {
 			return new ErrorResult();
 		}
 		return new SuccessResult();
+	}
+	
+	@GetMapping("/Login")
+	public Result Login(String email, String password) {
+		return this.Login(email, password);
+	}
+	@GetMapping("/Register")
+	public Result Register(Employer employer, User user) {
+		return this.Register(employer, user);
 	}
 }
