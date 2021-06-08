@@ -9,7 +9,7 @@ import hrms.hrms.entities.concretes.Ability;
 public interface AbilityService {
 
 	Result add(Ability ability);
-	Result delete(Ability ability);
+	Result delete(int id);
 	Result update(Ability ability);
 	DataResult<List<Ability>> getAll();
 	DataResult<Ability> getById(int id);

@@ -1,5 +1,7 @@
 package hrms.hrms.entities.concretes;
 
+import java.util.Map;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,14 +29,14 @@ public class Image {
 	private int id;
 	
 	@Column(name="url")
-	private String url;
+	private Map<String, String> url;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id", referencedColumnName = "id")
 	private JobSeeker jobSeeker;
 
 	public Image() {}
-	public Image(int id, String url, JobSeeker jobSeeker) {
+	public Image(int id, Map<String, String> url, JobSeeker jobSeeker) {
 		super();
 		this.id = id;
 		this.url = url;
@@ -46,16 +48,20 @@ public class Image {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUrl() {
+	public Map<String, String> getUrl() {
 		return url;
 	}
-	public void setUrl(String url) {
-		this.url = url;
+	public void setUrl(Map<String, String> string) {
+		this.url = string;
 	}
 	public JobSeeker getJobSeeker() {
 		return jobSeeker;
 	}
 	public void setJobSeeker(JobSeeker jobSeeker) {
 		this.jobSeeker = jobSeeker;
+	}
+	public void setUrl1(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 }
