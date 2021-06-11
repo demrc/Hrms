@@ -13,5 +13,6 @@ public interface JobSeekerService {
 	Result Login(String email,String password);
 	DataResult<List<JobSeeker>>  getAll();
 	Result Register(JobSeeker jobSeeker, User user);
+	Result getById(int id);
 
 }

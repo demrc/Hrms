@@ -105,6 +105,14 @@ public class JobSeekerManager implements JobSeekerService {
 	public DataResult<List<JobSeeker>> getAll() {
 		return new SuccessDataResult<List<JobSeeker>>(this.jobSeekerDao.findAll(),"Data Listed.");
 	}
+
+
+
+
+	@Override
+	public DataResult<JobSeeker> getById(int id) {
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getById(id));
+	}
 	
 	
 }

@@ -1,5 +1,7 @@
 package hrms.hrms.core.utilities.results;
 
+import java.util.Map;
+
 public class Result {
 
 	private boolean success;
@@ -19,5 +21,9 @@ public class Result {
 		
 	public String getMessage() {
 		return message;
+	}
+	public Map<String, String> getUrl() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
