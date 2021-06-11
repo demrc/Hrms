@@ -17,6 +17,7 @@ import hrms.hrms.dataAccess.abstracts.JobSeekerDao;
 import hrms.hrms.dataAccess.abstracts.UserDao;
 import hrms.hrms.entities.concretes.JobSeeker;
 import hrms.hrms.entities.concretes.User;
+import hrms.hrms.entities.dtos.JobSeekerWithCvDto;
 
 @Service
 public class JobSeekerManager implements JobSeekerService {
@@ -112,6 +113,14 @@ public class JobSeekerManager implements JobSeekerService {
 	@Override
 	public DataResult<JobSeeker> getById(int id) {
 		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getById(id));
+	}
+
+
+
+
+	@Override
+	public DataResult<List<JobSeekerWithCvDto>> getJobSeekerWithCvDetails() {
+		return new SuccessDataResult<List<JobSeekerWithCvDto>>(this.jobSeekerDao.getJobSeekerWithCvDetails());
 	}
 	
 	
