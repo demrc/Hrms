@@ -17,6 +17,7 @@ import hrms.hrms.core.utilities.results.Result;
 import hrms.hrms.core.utilities.results.SuccessResult;
 import hrms.hrms.entities.concretes.JobSeeker;
 import hrms.hrms.entities.concretes.User;
+import hrms.hrms.entities.dtos.JobSeekerWithCvDto;
 
 @RestController
 @RequestMapping("/api/JobSeekers")
@@ -57,5 +58,9 @@ public class JobSeekerController {
 	@GetMapping("/register")
 	public Result Register(JobSeeker jobSeeker, User user) {
 		return this.jobSeekerService.Register(jobSeeker, user);
+	}
+	@GetMapping("/getJobSeekerCvDetail")
+	public DataResult<List<JobSeekerWithCvDto>> getJobSeekerWithCvDetails() {
+		return this.jobSeekerService.getJobSeekerWithCvDetails();
 	}
 }

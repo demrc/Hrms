@@ -6,6 +6,7 @@ import hrms.hrms.core.utilities.results.DataResult;
 import hrms.hrms.core.utilities.results.Result;
 
 import hrms.hrms.entities.concretes.JobAdvertisement;
+import hrms.hrms.entities.dtos.JobAdvertisementWithTools;
 
 
 public interface JobAdvertisementService {
@@ -22,5 +23,6 @@ public interface JobAdvertisementService {
 	DataResult<List<JobAdvertisement>> getByDeadLine(Date deadline);
 	DataResult<List<JobAdvertisement>> getByActiveTrueAndJobName(String name);
 	DataResult<List<JobAdvertisement>> getByActiveTrueAndOpenPositions(int open_positions);
+	DataResult<List<JobAdvertisementWithTools>> getJobDetails();
 	
 }

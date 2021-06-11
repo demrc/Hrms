@@ -16,6 +16,7 @@ import hrms.hrms.core.utilities.results.SuccessDataResult;
 import hrms.hrms.core.utilities.results.Result;
 import hrms.hrms.dataAccess.abstracts.JobAdvertisementDao;
 import hrms.hrms.entities.concretes.JobAdvertisement;
+import hrms.hrms.entities.dtos.JobAdvertisementWithTools;
 
 
 
@@ -91,6 +92,11 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 	public DataResult<List<JobAdvertisement>> getAll() {
 		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAll(),"Data Listed.");
 
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisementWithTools>> getJobDetails() {
+		return new SuccessDataResult<List<JobAdvertisementWithTools>>(this.jobAdvertisementDao.getJobAdDetails());
 	}
 
 }

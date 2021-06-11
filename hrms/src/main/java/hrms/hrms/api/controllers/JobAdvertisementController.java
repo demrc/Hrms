@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import hrms.hrms.core.utilities.results.DataResult;
 import hrms.hrms.entities.concretes.JobAdvertisement;
+import hrms.hrms.entities.dtos.JobAdvertisementWithTools;
 import hrms.hrms.core.utilities.results.Result;
 
 import java.util.Date;
@@ -70,6 +71,10 @@ public class JobAdvertisementController {
 	@GetMapping("/getByActiveTrueAndOpenPositions")
 	public DataResult<List<JobAdvertisement>> getByActiveTrueAndOpenPositions(int open_positions)  {
 		return this.getByActiveTrueAndOpenPositions(open_positions);
+	}
+	@GetMapping("/getByJobAdDetail")
+	DataResult<List<JobAdvertisementWithTools>> getJobDetails() {
+		return this.jobAdvertisementService.getJobDetails();
 	}
 
 }
