@@ -31,11 +31,11 @@ public class AbilityController {
 		return this.abilityService.getAll();
 		}
 	@GetMapping("/getById")
-	public DataResult<Ability> getById(int id) {
+	public DataResult<Ability> getById(@RequestParam("id") int id) {
 		return this.abilityService.getById(id);
 		}
 	@GetMapping("/getByJobSeekerId")
-	public DataResult<List<Ability>> getByJobSeekerId(int id) {
+	public DataResult<List<Ability>> getByJobSeekerId(@RequestParam("id") int id) {
 		return this.abilityService.getByJobSeekerId(id);
 	}
 	
